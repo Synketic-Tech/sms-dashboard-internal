@@ -3,6 +3,14 @@
 
 Internal workspace for managing Synketic Motion Systems Inc., bringing company information, connected business services, and company and personal goals into one application.
 
+## Primary product direction: CEO dashboard
+
+The primary experience is a dashboard for the **Founder, CEO**, who is also the developer. Prioritize the information and workflows needed to run the business; the sales director and IT/systems architect retain useful views appropriate to their responsibilities.
+
+The CEO should have comprehensive access to business information and management capabilities needed for company oversight, including financial performance, sales pipeline, customer health, company goals, and operational issues. Build the executive overview first, with supporting detail views and clear next actions. Specific metrics and workflows will be defined during requirements and refined through the project manager's UI reviews.
+
+Candidate executive questions include: How is the business performing? What changed? What needs attention? Which goals are off track? What decisions or follow-ups are needed? Data sources, reporting periods, freshness, and unavailable information must be clear. Candidate metrics are planning inputs, not claims about data already available.
+
 ## Intended capabilities
 
 - **Member access:** Authorized members can log in and access the dashboard.
@@ -11,6 +19,17 @@ Internal workspace for managing Synketic Motion Systems Inc., bringing company i
 - **Goals:** Track company goals and personal goals, including ownership, progress, and status.
 
 ## Proposed foundation
+
+### Available Supabase projects
+
+- [Internal dashboard](https://supabase.com/dashboard/project/ehjygkfgiqdolhzqikhp): `ehjygkfgiqdolhzqikhp`, supplied by the project manager as the available internal backend.
+- [Customer dashboard](https://supabase.com/dashboard/project/jegmluwodwkuibreedcj): `jegmluwodwkuibreedcj`, a likely additional data source; required data and connection design remain to be determined.
+
+These are project references supplied by the project manager. Access, schema, authentication configuration, and environment purpose have not been verified. No connection has been configured.
+
+The proposed approach is to keep internal membership and company/goals data in the internal project and expose only explicitly approved customer information through a restricted server-side integration. Customer-dashboard access does not automatically grant internal membership. See DEVELOPMENT_PLAN.md for discovery and implementation tasks.
+
+### Architecture recommendations
 
 These are initial recommendations, not implemented features or finalized architecture decisions.
 
@@ -32,7 +51,7 @@ These are initial recommendations, not implemented features or finalized archite
 
 The initial team consists of:
 
-- Developer/founder
+- Founder, CEO (also developer)
 - Sales director
 - IT/systems architect, also responsible for technical help
 
@@ -40,7 +59,7 @@ The initial team consists of:
 
 The team composition above is confirmed. The permissions below are recommendations pending agreement.
 
-| Area | Developer/founder | Sales director | IT/systems architect |
+| Area | Founder, CEO | Sales director | IT/systems architect |
 | --- | --- | --- | --- |
 | Shared company information | View and manage | View; maintain sales content | View; maintain technical/support content |
 | Membership and role grants | Invite members and manage permissions | No administration by default | Account support; no role grants by default |
@@ -55,6 +74,7 @@ The team composition above is confirmed. The permissions below are recommendatio
 - Infrastructure or database access can exceed application permissions; define and audit that operational access separately before describing personal data as inaccessible to administrators.
 - Roles should group explicit permissions rather than rely on job titles embedded throughout the application. One person may hold more than one role.
 - All initial provider views remain read-only. Maintaining a connection does not grant permission to change provider records or expose credentials.
+- CEO access should cover all business domains needed for management, including the approved customer-dashboard integration. Personal-goal privacy remains a separate policy decision; comprehensive business visibility does not silently change that policy. Provider write-back remains outside the initial scope.
 
 ## Decisions still open
 
@@ -66,4 +86,4 @@ The team composition above is confirmed. The permissions below are recommendatio
 
 ## Current status
 
-Project scope only. No application, authentication, database, or provider integrations have been implemented.
+Phase 1 requirements are in progress. [FIRST_RELEASE_REQUIREMENTS.md](FIRST_RELEASE_REQUIREMENTS.md) defines the CEO and team workflow baseline, proposed metrics, access needs, and outstanding discovery decisions for Task 1.1. See [DEVELOPMENT_PLAN.md](DEVELOPMENT_PLAN.md) for task status. No application, authentication, database, or provider integrations have been implemented.
