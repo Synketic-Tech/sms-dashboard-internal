@@ -1,6 +1,14 @@
 
 # Synketic Motion Systems Internal Dashboard
 
+## Platform Administration local preview
+
+Intended operators are the **Founder, CEO** and **IT/systems architect**, each with explicit organization/environment grants. The sales director and customer users have no default access. Current logins are synthetic local fixtures; no real users have been provisioned. See [tool purpose and access policy](docs/PLATFORM_ADMINISTRATION.md#purpose-and-who-can-use-the-tool).
+
+A restricted, synthetic-data vertical slice now runs locally with PostgreSQL-backed requests, previews, mock approval, sandbox ledger adjustments and audit history. Start with `npm.cmd start` after following the [operator/setup guide](docs/PLATFORM_ADMINISTRATION.md). Open [the local tool](http://127.0.0.1:4317).
+
+Production application is disabled. Real identity integration, email policy/delivery and hosted deployment remain outstanding. The broader CEO dashboard below remains planned. See [implementation, fixtures, validation and deployment boundaries](docs/PLATFORM_ADMINISTRATION.md).
+
 Internal workspace for managing Synketic Motion Systems Inc., bringing company information, connected business services, and company and personal goals into one application.
 
 ## Primary product direction: CEO dashboard
@@ -78,12 +86,19 @@ The team composition above is confirmed. The permissions below are recommendatio
 
 ## Decisions still open
 
-- Confirm or adjust the proposed role permissions, invitation authority, and support boundaries above.
-- Confirm private-by-default personal goals and explicit sharing.
+Task 1.2's policy baseline was approved September 16, 2026. [Membership and access](docs/MEMBERSHIP_AND_ACCESS.md) documents the role matrix, personal-goal privacy, account lifecycle, and separate Platform Administration boundary. Implementation remains pending.
+
+- Resolve production Platform Administration approvers, real identity provisioning, and organization/environment grants before activation.
 - What company information belongs in the first release?
 - Which provider and metrics should be integrated first?
 - What stack and deployment environment should host the application?
 
 ## Current status
 
-Phase 1 requirements are in progress. [FIRST_RELEASE_REQUIREMENTS.md](FIRST_RELEASE_REQUIREMENTS.md) defines the CEO and team workflow baseline, proposed metrics, access needs, and outstanding discovery decisions for Task 1.1. See [DEVELOPMENT_PLAN.md](DEVELOPMENT_PLAN.md) for task status. No application, authentication, database, or provider integrations have been implemented.
+Task 1.5's [initial data model](docs/DATA_MODEL.md) defines membership, permissions, company information, goals/sharing, integrations, and audit ownership. It is a logical design; no schema changes have been applied. Task 1.6 is next to inspect the Supabase projects and resolve existing-schema and connection boundaries.
+
+Task 1.4 is complete. The independent [dashboard foundation](apps/dashboard/README.md) runs at port 3000 with no credentials; the PA-01 admin tool remains at port 4317. From `apps/dashboard`, run `npm.cmd ci` and `npm.cmd run dev`. Formatting, lint, type checking, clean install, production build, and HTTP smoke passed locally. GitHub-hosted CI has not run; Phase 2 UI and production authentication remain future work.
+
+Task 1.3 selected the [technology stack](docs/TECH_STACK.md): Next.js/TypeScript, Supabase Auth/PostgreSQL, planned Vercel Pro hosting, and Supabase Cron workers. Task 1.4 added the dashboard in `apps/dashboard` while preserving the local admin prototype and its commands. Hosting and live authentication are not configured.
+
+Phase 1 requirements are in progress. [FIRST_RELEASE_REQUIREMENTS.md](FIRST_RELEASE_REQUIREMENTS.md) defines the CEO and team workflow baseline, proposed metrics, access needs, and outstanding discovery decisions for Task 1.1. See [DEVELOPMENT_PLAN.md](DEVELOPMENT_PLAN.md) for task status. PA-01 adds the local Platform Administration slice described above; production authentication and provider integrations remain unimplemented.

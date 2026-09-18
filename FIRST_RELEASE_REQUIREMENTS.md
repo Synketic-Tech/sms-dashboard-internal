@@ -8,7 +8,7 @@ Prepared September 12, 2026. Status: Requirements baseline for UI development; p
 
 The Founder, CEO is the primary user. The dashboard must support comprehensive business oversight while also serving the sales director and IT/systems architect responsible for technical help. Scope includes company information, company/personal goals, QuickBooks, Stripe, HubSpot, and a likely customer-dashboard connection. The internal Supabase project is the intended backend.
 
-The workflows, metrics, and access mapping below are a concrete first-release proposal based on that direction. They do not finalize the permission policy in Task 1.2 or claim that a provider supplies a particular field. The first UI uses labeled sample data; the project manager will review and correct it in Task 2.4.
+The workflow access mapping in Task 1.1C was approved by the project manager on September 16, 2026. The detailed Task 1.2 policy is also approved and documented in [Membership and access](docs/MEMBERSHIP_AND_ACCESS.md). Metric definitions and source availability remain proposals pending discovery. The first UI uses labeled sample data; the project manager will review and correct it in Task 2.4.
 
 ## Task 1.1A — Executive information requirements
 
@@ -96,7 +96,7 @@ Create a company or personal goal with title, description, owner, target date, s
 
 ## Task 1.1C — CEO and team workflow access mapping
 
-This maps business needs, not a finalized security policy. Task 1.2 translates it into explicit grants and lifecycle rules.
+Approved by the project manager September 16, 2026. This is the accepted business-workflow access mapping. The approved [Task 1.2 policy](docs/MEMBERSHIP_AND_ACCESS.md) specifies permissions, personal-goal privacy, and lifecycle rules; implementation and verification remain separate work.
 
 | Domain / workflow | Founder, CEO | Sales director | IT/systems architect |
 | --- | --- | --- | --- |
@@ -105,7 +105,7 @@ This maps business needs, not a finalized security policy. Task 1.2 translates i
 | Sales and customer information | Required business oversight and detail | Relevant sales/customer records under agreed scope | Connection diagnostics; customer records only under separate grant |
 | Company information | View/manage business content | Read shared content; maintain sales content | Read shared content; maintain technical/support content |
 | Company goals and operational follow-ups | Create, assign, reprioritize, update, complete, and archive | Update assigned goals/issues | Update assigned goals/issues |
-| Personal goals | Own and explicitly shared goals under policy to be confirmed | Same | Same |
+| Personal goals | Own goals and explicitly shared read-only goals under the approved Task 1.2 policy | Same | Same |
 | Membership and access | Membership/permission administration | No default administration | Approved account support; role grants separately determined |
 | Provider maintenance | Connection authority and business-data oversight | No default maintenance | Approved connection maintenance and redacted diagnostics |
 

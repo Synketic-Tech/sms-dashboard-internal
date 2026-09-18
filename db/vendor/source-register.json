@@ -1,0 +1,10 @@
+[
+  {
+    "source": "../synketic-dashboard/supabase/migrations/20260901010000_fce_report_token_ledger.sql",
+    "sha256": "1f6514a424c242ef618f4df71aa9cc7e66f2d26a3e03ea8f086208e487416810"
+  },
+  {
+    "source": "../synketic-dashboard/supabase/migrations/20260910010000_fce_sandbox_report_token_ledger.sql",
+    "sha256": "0df4fd6c2a6deafa157fac267f80cc3906aa9b7959f55ac517327eb0b0156150"
+  }
+]
